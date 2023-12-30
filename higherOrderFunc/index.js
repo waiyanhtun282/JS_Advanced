@@ -2,6 +2,8 @@
 // function(a,b) =>super man
 // HOF => your man
 
+// function() => function(a,b) =>HOF
+
 // (1) function()
 // function letAdamLogin() {
 //   let array = [];
@@ -46,24 +48,37 @@
 
 // higher order function
 
-const getUserName = (name) => "Access return" + name;
+// const getUserName = (name) => "Access return" + name;
 
-const Authicate = (verify) => {
-  let array = [];
-  for (let i = 0; i < verify; i++) {
-    array.push(verify);
-  }
-  return true;
-};
+// function Authicate(verify) {
+//   let array = [];
+//   for (let i = 0; i < verify; i++) {
+//     array.push(verify);
+//   }
+//   return true;
+// }
 
-function letPerson(person, fn) {
-  // tell it what is data user  =>  function
-  if (person.level === "admin") {
-    fn(500000);
-  } else if (person.level === "user") {
-    fn(40000);
-  }
-  return getUserName(person.name);
-}
+// function letPerson(person, fn) {
+//   // tell it what  data user  =>  function
+//   if (person.level === "admin") {
+//     fn(500000);
+//   } else if (person.level === "user") {
+//     fn(40000);
+//   }
+//   return getUserName(person.name);
+// }
 
-letPerson({ level: "admin", name: "Leo" }, Authicate);
+// letPerson({ level: "admin", name: "Leo" }, Authicate);
+
+// Exercise HigherOrderFunction
+// const mutlifyBy = function (num1) {
+//   return function (num2) {
+//     return num1 * num2;
+//   };
+// };
+
+// const multifyTwo = mutlifyBy(2);
+// console.log(multifyTwo(6));
+
+const mutlifyBy = (num1) => (num2) => num1 * num2;
+console.log(mutlifyBy(12)(20));
