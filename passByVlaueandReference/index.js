@@ -36,14 +36,32 @@
 
 // Exercise Comapre Objects
 
-let user1 = { name: "nerd", org: "dev" };
-let user2 = { name: "nerd", org: "dev" };
+// let user1 = { name: "nerd", org: "dev" };
+// let user2 = { name: "nerd", org: "dev" };
 // give code
 // let eq = user1 == user2;
 
 // fix code
-let eq = JSON.stringify(user1) == JSON.stringify(user2);
+// let eq = JSON.stringify(user1) == JSON.stringify(user2);
 
-console.log(eq);
+// console.log(eq);
 
 // pass by referece
+
+// devGray channel
+// foundation knowledge for writing Pure functions
+// Javascript data type
+// primitive vs stuctural
+
+// Primitive
+// 1 undefined
+// 2 Boolean
+// 3 Number
+// 4 String
+// 5 null
+//6 BignInt
+// 7 Symbol
+
+// Structural
+// 1 Objects: new Objects,Array,Map,Set,WeakMap,Data
+// 2 Functions
