@@ -76,7 +76,7 @@ console.log(x);
 console.log(y);
 
 // strucura type reference
-let xArray = [1, 2, 3, 4, 5];
+let xArray = [9,2,3,4];
 let yArray = xArray;
 yArray.push(6);
 console.log(xArray);
@@ -118,7 +118,7 @@ console.log(addToScoreHistory(scoreArray, 14));
 // shallow copy vs deep copy(clones)
 
 // shallow copy
-// with the spred operator
+// with the spread operator
 const zArray = [...yArray, 10];
 console.log(zArray);
 console.log(yArray);
@@ -133,3 +133,29 @@ console.log(tArray === zArray);
 tArray.push(11);
 console.log(zArray);
 console.log("tArray", tArray);
+
+// But if there is nested array or objects
+// yArray.push([8, 9, 10]);
+// const vArray = [...yArray];
+// console.log(vArray);
+// // vArray[4].push(5);
+// console.log(vArray);
+// console.log(yArray);
+// nested data structure still share refeence
+
+// Noted: Array.from() and slice() create shallow 
+// copies too
+
+// When it comes to objects , what about
+// Object.freeze() ??
+
+const scoreObj ={
+  "first":22,
+  "second":32,
+  "third":{'a':1,"b":2}
+}
+Object.freeze(scoreObj);
+scoreObj.third.a=8;
+console.log(scoreObj);
+
+// still mutates - it shallows freezw
