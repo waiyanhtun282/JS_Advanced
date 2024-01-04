@@ -127,12 +127,12 @@ console.log(xArray === yArray);
 console.log(zArray === yArray);
 
 // with Object.assign();
-const tArray = Object.assign([], zArray);
-console.log(tArray);
-console.log(tArray === zArray);
-tArray.push(11);
-console.log(zArray);
-console.log("tArray", tArray);
+// const tArray = Object.assign([], zArray);
+// console.log(tArray);
+// console.log(tArray === zArray);
+// tArray.push(11);
+// console.log(zArray);
+// console.log("tArray", tArray);
 
 // But if there is nested array or objects
 // yArray.push([8, 9, 10]);
@@ -154,8 +154,54 @@ const scoreObj ={
   "second":32,
   "third":{'a':1,"b":2}
 }
-Object.freeze(scoreObj);
-scoreObj.third.a=8;
-console.log(scoreObj);
+// Object.freeze(scoreObj);
+// scoreObj.third.a=8;
+// console.log(scoreObj);
 
 // still mutates - it shallows freezw
+
+// Deep copy is needed to avoid this
+
+// Serveral librires  like loadash ,Ramnda, and others
+// have this fertature built in
+
+// Here is one line vanilla JS Solution
+// but it doesn't  work with dates and functions,undefined,INfinity,RegExps,Maps,Sets,Blobs,
+// FileLists,ImageDatas,and other comples data types
+
+const newScoreObj =JSON.parse(JSON.stringify(scoreObj));
+console.log(newScoreObj);
+console.log(newScoreObj ===scoreObj);
+
+// indicate nested objects
+
+const deepClone =(obj) =>{
+  if(typeof obj !=='object' || typeof obj === null) return obj;
+
+  // Create an array or objects values
+
+  const newObject =Array.isArray(obj) ? [] :{};
+  for(let key in obj){
+     const value =obj[key];
+    //  recursive nested function
+    newObject[key] =deepClone(value);
+  };
+  return newObject;
+}
+
+const newScoreArray =deepClone(scoreArray)
+console.log(newScoreArray ===scoreArray);
+
+const myScoreObj =deepClone(scoreObj);
+console.log(myScoreObj);
+
+
+// Now we can make a  pure  function
+const pureAddToScoreHistory =(array,score,clonefunc) =>{
+  const newArray =clonefunc(array);
+  newArray.push(score);
+  return newArray;
+}
+const pureScoreHistory =pureAddToScoreHistory(scoreArray,18,deepClone);
+console.log(pureScoreHistory);
+console.log(scoreArray);
