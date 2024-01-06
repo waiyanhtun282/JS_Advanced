@@ -78,24 +78,24 @@ console.log(y);
 // strucura type reference
 let xArray = [9,2,3,4];
 let yArray = xArray;
-yArray.push(6);
-console.log(xArray);
-console.log(yArray);
+// yArray.push(6);
+// console.log(xArray);
+// console.log(yArray);
 
 // mutabel and imutable
 
 // primitive are immutalbel
 let myName = "Dave";
-myName[0] = "W"; //nope
-console.log(myName);
+// myName[0] = "W"; //nope
+// console.log(myName);
 
 // Reassign  is not same as mutable
-// myName = "David";
-// console.log(myName);
+myName = "David";
+console.log(myName);
 // sturctural contain mutal data
-// yArray[0] = 9;
-// console.log(yArray);
-// console.log(xArray);
+yArray[0] = 9;
+console.log(yArray);
+console.log(xArray);
 
 // Pure Functuion  require you to avoid
 // mutating data
@@ -119,12 +119,12 @@ console.log(addToScoreHistory(scoreArray, 14));
 
 // shallow copy
 // with the spread operator
-const zArray = [...yArray, 10];
-console.log(zArray);
-console.log(yArray);
+// const zArray = [...yArray, 10];
+// console.log(zArray);
+// console.log(yArray);
 
-console.log(xArray === yArray);
-console.log(zArray === yArray);
+// console.log(xArray === yArray);
+// console.log(zArray === yArray);
 
 // with Object.assign();
 // const tArray = Object.assign([], zArray);
