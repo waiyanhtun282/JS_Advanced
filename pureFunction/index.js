@@ -77,3 +77,5 @@ console.log(addFive);
 
 const doubled = oneFive.map(elem => elem *2);
 console.log(doubled);
+
+const sumed =oneFive.reduce((acc,elem) => acc +elem);console.log(sumed);
