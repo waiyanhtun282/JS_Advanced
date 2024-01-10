@@ -64,3 +64,60 @@ const fib =(num,array=[0,1]) =>{
 }
 
 console.log('with recursion',fib(12));
+
+// RealLife Example
+
+//  1) Continuation Token From an API
+const getAwsProductImages = async() =>{
+    //  get data fetch api
+    if(data.IsIruncated){
+        return await getAwsProductImages(
+            productId,
+            s3,  
+            resultArray,
+            data.NextContinucationToken
+        );
+    }
+    return resultArray;
+}
+
+// 2) A Parser:
+// a company directory
+// a file directory 
+// the DOM - a web crawler
+// An XML or JSON data export
+
+// Export from your streaming service like Spotify, YT Music, etc.
+
+const artistsByGenre = {
+    jazz: ["Miles Davis", "John Coltrane"],
+    rock: {
+        classic: ["Bob Seger", "The Eagles"],
+        hair: ["Def Leppard", "Whitesnake", "Poison"],
+        alt: {
+            classic: ["Pearl Jam", "The Killers"],
+            current: ["Joywave", "Sir Sly"]
+        }
+    },
+    unclassified: {
+        new: ["Caamp", "Neil Young"],
+        classic: ["Seal", "Morcheeba", "Chris Stapleton"]
+    }
+}
+
+const getArtistsNames =(dataObj,array=[]) =>{
+  Object.keys(dataObj).forEach(key =>{
+    // console.log(key);
+    if(Array.isArray(dataObj[key])){
+        return dataObj[key].forEach(artist =>{
+            // console.log("artist",artist);
+            array.push(artist)
+        });
+    }
+    getArtistsNames(dataObj[key],array);
+  }
+  )
+  return array;
+}
+
+console.log(getArtistsNames(artistsByGenre));
