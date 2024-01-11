@@ -108,12 +108,14 @@ const artistsByGenre = {
 const getArtistsNames =(dataObj,array=[]) =>{
   Object.keys(dataObj).forEach(key =>{
     // console.log(key);
-    if(Array.isArray(dataObj[key])){
+    // console.log(Array.isArray(dataObj[key]));
+    if(Array.isArray(dataObj[key])){    
         return dataObj[key].forEach(artist =>{
             // console.log("artist",artist);
             array.push(artist)
         });
     }
+    // console.log(array);
     getArtistsNames(dataObj[key],array);
   }
   )
@@ -121,3 +123,28 @@ const getArtistsNames =(dataObj,array=[]) =>{
 }
 
 console.log(getArtistsNames(artistsByGenre));
+
+
+// WedDevCOdy
+
+// function power(number,exponent){
+//     debugger;
+//     if(exponent===1) return number;
+//     return number* power(number,exponent -1)
+// }
+
+// console.log(power(2,5));
+// power(2,5);
+// 2*power(2,4);
+// 2*2*power(2,3);
+// 2*2*2*power(2,2);
+// 2*2*2*2*power(2,1);
+// 2*2*2*2*2;
+
+function fibnuce(n){
+    debugger;
+    if(n===2 || n===1) return 1;
+    return fibnuce(n-1) + fibnuce(n-2)
+}
+
+console.log(fibnuce(4));
